@@ -13,7 +13,7 @@ One of the biggest logistical challenges of event planning is in getting a reali
 
 I started off with regression models and then tried a different approach by framing this into a classification question by creating headcount bins. Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I used those topics as features in the model.
 
-Lastly, I looked at the NYC-based members and conducted a segmentation to get a sense of natural 'groups' among members themselves. 
+Lastly, I looked at the NYC-based members and clustered similar members based on the interests and groups that they provided on their meetup profiles.
 
 ## Data Cleaning
 
