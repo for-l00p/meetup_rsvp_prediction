@@ -13,7 +13,7 @@ One of the biggest logistical challenges of event planning is in getting a reali
 
 I started off with regression models and then tried a different approach by framing this into a classification question by creating headcount bins. Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I used those topics as features in the model.
 
-Lastly, I looked at the NYC-based members and clustered similar members based on the interests and groups that they provided on their meetup profiles.
+Lastly, I looked at the NYC-based members and clustered similar members based on the interests and groups that they provided on their meetup profiles. The benefit of clustering is that the boundaries generated can be applied to member segmentation for marketing/advertising application.
 
 ## Data Cleaning
 
