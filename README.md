@@ -9,9 +9,9 @@ Predicting yes-RSVP counts for NYC-based events using data sourced from meetup's
 ***
 
 ## Motivation
-One of the biggest logistical challenges of event planning is in getting a realistic headcount estimation. Much of event planning is contingent on how many attendees are expected, most importantly choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
+One of the biggest logistical challenges of event planning is in getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
-I started off with regression models and then tried a different approach by framing this into a classification question by creating headcount bins. Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories.
+I started off with regression models and then tried a different approach by framing this into a classification question by creating headcount bins. Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I replaced the group_category feature (tech, socializing, etc.) with the event topic since the group_category did not score highly on the feature importance graph derived from the xbgoost model.
 
 Lastly, I looked at the NYC-based members and clustered similar members based on the interests and groups that they provided on their meetup profiles. The benefit of clustering is that the boundaries generated can be applied to member segmentation for marketing/advertising application.
 
