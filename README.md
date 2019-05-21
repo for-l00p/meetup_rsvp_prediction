@@ -16,7 +16,10 @@ I started off with regression models and then tried a different approach by fram
 ## Data Cleaning
 For the events data, there were null values to address and data to preprocess.
 
-![](datacleaning.png){ width=50% }
+<p align="center">
+ <img width="300" alt="datacleaning" height="300" src="datacleaning.png">
+</p>
+
 
 ## Data Exploration
 
