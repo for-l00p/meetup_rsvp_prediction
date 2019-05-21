@@ -17,7 +17,7 @@ I started off with regression models and then tried a different approach by fram
 For the events data, there were null values to address and data to preprocess.
 
 <p align="center">
- <img width="300" alt="datacleaning" height="300" src="datacleaning.png">
+ <img width="400" alt="datacleaning" height="400" src="datacleaning.png">
 </p>
 
 
