@@ -6,8 +6,6 @@
 
 Predicting yes-RSVP counts for NYC-based events using data sourced from meetup's API.
 
-***
-
 ## Motivation
 One of the biggest logistical challenges of event planning is in getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
@@ -20,11 +18,14 @@ For the events data, there were null values to address and data to preprocess.
  <img width="400" alt="datacleaning" height="400" src="datacleaning.png">
 </p>
 
-
 ## Data Exploration
+Which so much data to work with, exploratory analysis was a large part of the project.
+
+
 
 ## Modeling
 
+
 ## NLP - Topic Modeling
 
-## Takeaways
+## Takeaways / Next Steps
