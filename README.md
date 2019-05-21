@@ -16,7 +16,7 @@ I started off with regression models and then tried a different approach by fram
 ## Data Cleaning
 For the events data, there were null values to address and data to preprocess.
 
-![Image](data_cleaning.png)
+![Image](datacleaning.png)
 
 ## Data Exploration
 
