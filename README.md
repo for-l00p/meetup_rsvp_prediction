@@ -9,14 +9,19 @@ One of the biggest logistical challenges of event planning is in getting a reali
 I started off with regression models and then tried a different approach by framing this into a classification question by creating headcount bins. Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I replaced the group_category feature (tech, socializing, etc.) with the event topic since the group_category did not score highly on the feature importance graph derived from the xbgoost model.
 
 ## Data Cleaning
-For the events data, there were null values to address and data to preprocess.
+There were null values to address in the events and groups dataset:
 
 <p align="center">
  <img width="400" alt="datacleaning" height="400" src="datacleaning.png">
 </p>
 
+<p align="center">
+ <img width="800" alt="datacleaning_groups" height="350" src="datacleaning_groups.png">
+</p>
+
+
 ## Data Exploration
-Which so much data to work with, exploratory analysis was a large part of the project.
+
 
 
 
@@ -25,4 +30,6 @@ Which so much data to work with, exploratory analysis was a large part of the pr
 
 ## NLP - Topic Modeling
 
-## Takeaways / Next Steps
+## Takeaways
+
+## Next Steps
