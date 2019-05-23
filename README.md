@@ -47,7 +47,7 @@ The number of events held by each group varied across the category of the hostin
 There is a clear pattern in the total number of events held per day. The number of events usually peak on Saturdays and dip on Mondays.
 
 <p align='center'>
- <img width="400" alt="perday" height="200" src="images/events_perday.png">
+ <img width="500" alt="perday" height="250" src="images/events_perday.png">
 </p>
 
 
@@ -57,7 +57,7 @@ There is a clear pattern in the total number of events held per day. The number 
 The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs > 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since they would likely have a negligible effect on the models.
 
 <p align='center'>
- <img width="400" alt="target" height="200" src="images/target_info.png">
+ <img width="500" alt="target" height="250" src="images/target_info.png">
 </p>
 
 #### Groups
