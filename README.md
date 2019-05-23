@@ -6,7 +6,7 @@ Predicting yes-RSVP counts for NYC-based events using data sourced from meetup's
 ## Motivation
 One of the biggest logistical challenges of event planning is in getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
- Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I replaced the group_category feature (tech, socializing, etc.) with the event topic since the ```group_category``` did not score highly on the feature importance graph derived from the first iteration of the xbgoost model that included ```group_category``` as a feature.
+Because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I replaced the group_category feature (tech, socializing, etc.) with the event topic since the ```group_category``` did not score highly on the feature importance graph derived from the first iteration of the xbgoost model that included ```group_category``` as a feature.
 
 ## Data Cleaning
 There were null values to address in the events and groups dataset. Based on the percentage of null values for a given feature, the feature column was either dropped or filled with an imputed value.
@@ -26,7 +26,7 @@ I created a function to make GET requests to the events and groups API endpoint 
 
 #### Events
 
-As expected, most of the events were located in Manhattan and its immediate vicinities (Queens, Brooklyn, New Jersey) but interestingly, there were events held across the country and internationally as well.
+As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad. 
 
 [insert local and global map images side by side]
 
