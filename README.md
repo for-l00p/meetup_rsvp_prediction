@@ -29,10 +29,10 @@ There were null values to address in the events and groups dataset. Based on the
 
 As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad.
 
-<p>
- <img width="400" alt="nycevents" height="400" src="nyc_events_map.png">
+<p align='center'>
+ <img width="200" alt="nycevents" height="100" src="images/nyc_events_map.png">
 
- <img width="400" alt="globevents" height="400" src="glob_events_map.png">
+ <img width="200" alt="globevents" height="100" src="images/glob_events_map.png">
 
 </p>
 
