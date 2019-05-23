@@ -42,7 +42,7 @@ As expected, most events were located in the greater New York City area but inte
 The number of events held by each group varied across the category of the hosting group. For example, book-club groups held much fewer events than singles groups. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group look to provide as many 'mingling' opportunities as possible.
 
 <p align='center'>
- <img width="900" alt="events" height="700" src="images/events_eda.png">
+ <img width="800" alt="events" height="700" src="images/events_eda.png">
 
 </p>
 
