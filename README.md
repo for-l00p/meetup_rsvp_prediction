@@ -52,7 +52,7 @@ The number of events held by each group varied across the category of the hostin
 The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs greater than 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since such a small value would have a negligible effect on the model prediction.
 
 <p align='center'>
- <img width="600" alt="target" height="400" src="images/target_info.png">
+ <img width="600" alt="target" height="300" src="images/target_info.png">
 </p>
 
 
