@@ -1,11 +1,11 @@
 ***
 # Event RSVP Predictor
 
-Predicting yes-RSVP counts for NYC-based events using data sourced from [Meetup's](https://www.meetup.com/) API.
+Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's API.
 
 ## Motivation
 
-Meetup is one of the most popular event-based social networking sites out there. With humble beginnings in New York City, the Meetup community now stretches all around the world 16 years later. The founders of Meetup realized believed in the importance of building real communities through in-person contact.
+[Meetup's](https://www.meetup.com/) is one of first and most popular event-based social networking sites. With humble beginnings in New York City, the Meetup community now stretches all around the world. The founders of Meetup realized the importance of building real communities through in-person interactions in the form of community events.
 
 One of the biggest challenges of event planning is getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
@@ -25,15 +25,13 @@ There were null values to address in the events and groups dataset. Based on the
 
 ## Data Exploration
 
-I created a function to make GET requests to the events and groups API endpoint to collect data.
-
 #### Events
 
 As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad.
 
 [insert local and global map images side by side]
 
-The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read a certain portion of a book; members of singles groups are highly interested in mingling so they are interested in going to as many events as possible with other like-minded individuals.)
+The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group need to provide as many 'mingling' opportunities as possible.
 
 
 #### Groups
@@ -41,15 +39,20 @@ The number of events held by each group varied across the category of the hostin
 
 ## Modeling
 
-I performed a number of different regression models on the dataset. Below are the results of the regression model using ```group_category``` followed by a new iteration of the model that replaces the category with ```event_topic```.
+I performed a number of different regression models on the dataset. Below are the results of the regression model using ```group_category``` followed by a second iteration that replaces the category with ```event_topic```. [note differences in performance]
 
 
 ## NLP: Topic Modeling of Event Descriptions
 
 
+
 ## Takeaways & Next Steps
 
-One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until actually attendance data is collected, we
+One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
+
+For next steps, I plan to gather event data for the rest of 2018 to improve model performance, namely to address the uneven distribution of lower-RSVP-count vs. higher-RSVP-count events. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction which may be difficult for event organizers to interpret. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
+
+
 
 - reg w/ all data
 - class w/ all data (measure performance w/ ROC-AUC graphs, confusion matrices & precision/recall/F1)
