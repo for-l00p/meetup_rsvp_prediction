@@ -5,7 +5,7 @@ Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's
 
 ## Motivation
 
-[Meetup's](https://www.meetup.com/) is one of first and most popular event-based social networking sites. With humble beginnings in New York City, the Meetup community now stretches all around the world. The founders of Meetup realized the importance of building real communities through in-person interactions in the form of community events.
+[Meetup](https://www.meetup.com/) is one of first and most popular event-based social networking sites. With humble beginnings in New York City, the Meetup community now stretches all around the world. The founders of Meetup realized the importance of building real communities through in-person interactions in the form of community events.
 
 One of the biggest challenges of event planning is getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
@@ -15,11 +15,11 @@ Additionally, because there was a lot of rich information in the event descripti
 There were null values to address in the events and groups dataset. Based on the percentage of null values for a given feature, the feature column was either dropped or filled with an imputed value.
 
 <p align="center">
- <img width="400" alt="datacleaning" height="400" src="datacleaning.png">
+ <img width="400" alt="datacleaning" height="400" src="images/datacleaning.png">
 </p>
 
 <p align="center">
- <img width="500" alt="datacleaning_groups" height="350" src="datacleaning_groups.png">
+ <img width="500" alt="datacleaning_groups" height="350" src="images/datacleaning_groups.png">
 </p>
 
 
@@ -29,7 +29,12 @@ There were null values to address in the events and groups dataset. Based on the
 
 As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad.
 
-[insert local and global map images side by side]
+<p>
+ <img width="400" alt="nycevents" height="400" src="nyc_events_map.png">
+
+ <img width="400" alt="globevents" height="400" src="glob_events_map.png">
+
+</p>
 
 The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group need to provide as many 'mingling' opportunities as possible.
 
@@ -50,7 +55,7 @@ I performed a number of different regression models on the dataset. Below are th
 
 One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
 
-For next steps, I plan to gather event data for the rest of 2018 to improve model performance, namely to address the uneven distribution of lower-RSVP-count vs. higher-RSVP-count events. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction which may be difficult for event organizers to interpret. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
+For next steps, I plan to gather event data for the rest of 2018 to improve model performance and . Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction which may be difficult for event organizers to interpret. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
 
 
 
