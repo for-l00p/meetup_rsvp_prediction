@@ -30,10 +30,11 @@ As expected, most of the events were located in Manhattan and its immediate vici
 
 [insert local and global map images side by side]
 
-The number of events held by each group varied across the category of the hosting group. For example, the 'book club' category of groups 
-
+The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read a certain portion of a book; members of singles groups are highly interested in mingling so they are interested in going to as many events as possible with other like-minded individuals.)
 
 #### Groups
+
+
 
 ## Modeling
 
