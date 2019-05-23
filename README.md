@@ -22,7 +22,7 @@ There were null values to address in the events and groups dataset. Based on the
 
 ## Data Exploration
 
-I pulled down events for NYC-based groups for the months of September and October and explored the contents in this dataset.
+I created a function to make GET requests to the events and groups API endpoint to collect data.
 
 #### Events
 
@@ -44,13 +44,14 @@ The number of events held by each group varied across the category of the hostin
 
 ## NLP: Topic Modeling of Event Descriptions
 
+
 ## Takeaways & Next Steps
 
-One of the biggest caveats for this model is that 'yes' RSVP counts inherently are not an accurate reflection of actual event attendance. However, until better
+One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until actually attendance data is colllected, we
 
 - reg w/ all data
 - class w/ all data (measure performance w/ ROC-AUC graphs, confusion matrices & precision/recall/F1)
-    - try SMOTE
-    - try undersampling majority class
+    - SMOTE (post train/test/split to avoid data leakage)
+    - undersample majority class
     - note that you do not have to have a perfect 1:1 ratio across all classes - try any ratio that is better than what you currently have
 - visualize centroids of member-clusters?
