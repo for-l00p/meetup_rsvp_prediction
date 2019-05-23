@@ -9,10 +9,13 @@ Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's
 
 One of the biggest challenges of event planning is getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
-Additionally, because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the events themselves, across all categories. I replaced the group_category feature (tech, socializing, etc.) with the event topic since the ```group_category``` did not score highly on the feature importance graph derived from the first iteration of the xbgoost model that included ```group_category``` as a feature.
+Additionally, because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the event descriptions across all categories.
 
 ## Data Cleaning
-There were null values to address in the events and groups dataset. Based on the percentage of null values for a given feature, the feature column was either dropped or filled with an imputed value.
+
+My final dataset included contained 8,624 NYC-based groups and 25,424 events (covering September-October 2018).
+
+Before conducting initial analyses, I reviewed the raw data to address missing values by removing a column altogether or filling with a value.
 
 <p align="center">
  <img width="400" alt="datacleaning" height="400" src="images/datacleaning.png">
@@ -27,7 +30,7 @@ There were null values to address in the events and groups dataset. Based on the
 
 #### Events
 
-As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad.
+As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad. (Note the events shown in the maps below are from a sample of just 2,000 events.)
 
 <p align='center'>
  <img width="400" alt="nycevents" height="225" src="images/nyc_events_map.png">
@@ -36,7 +39,17 @@ As expected, most events were located in the greater New York City area but inte
 
 </p>
 
-The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group need to provide as many 'mingling' opportunities as possible.
+The number of events held by each group varied across the category of the hosting group. For example, book-club groups held much fewer events than singles groups. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group look to provide as many 'mingling' opportunities as possible.
+
+<p align='center'>
+ <img width="400" alt="events" height="225" src="images/events_eda.png">
+
+</p>
+
+
+#### Target
+
+Looking at just the
 
 
 #### Groups
@@ -44,16 +57,24 @@ The number of events held by each group varied across the category of the hostin
 
 ## Modeling
 
+#### Baseline
+
 I performed a number of different regression models on the dataset. Below are the results of the regression model using ```group_category``` followed by a second iteration that replaces the category with ```event_topic```. [note differences in performance]
+
+#### Best Model
+
+
+#### Feature Importance
 
 
 ## NLP: Topic Modeling of Event Descriptions
 
 
-
-## Takeaways & Next Steps
+## Takeaways
 
 One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
+
+## Next Steps
 
 For next steps, I plan to gather event data for the rest of 2018 to improve model performance and . Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction which may be difficult for event organizers to interpret. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
 
