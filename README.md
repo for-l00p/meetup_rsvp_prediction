@@ -26,11 +26,12 @@ I created a function to make GET requests to the events and groups API endpoint 
 
 #### Events
 
-As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad. 
+As expected, most events were located in the greater New York City area but interestingly, events were also organized across the country and abroad.
 
 [insert local and global map images side by side]
 
 The number of events held by each group varied across the category of the hosting group. For example, groups within the 'book club' category held much fewer events than groups within the 'singles' category. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read a certain portion of a book; members of singles groups are highly interested in mingling so they are interested in going to as many events as possible with other like-minded individuals.)
+
 
 #### Groups
 
