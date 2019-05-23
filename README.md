@@ -49,13 +49,21 @@ The number of events held by each group varied across the category of the hostin
 
 #### Target
 
-Looking at just the
+The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs greater than 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since such a small value would have a neglibile effect on the model prediction.
+
+<p align='center'>
+ <img width="400" alt="target" height="200" src="images/target_info.png">
+</p>
 
 
 #### Groups
 
 
 ## Modeling
+
+Below is a summary of all the regression models I ran. We'll take a closer look at the baseline and the best performing models below.
+
+
 
 #### Baseline
 
@@ -67,7 +75,7 @@ I performed a number of different regression models on the dataset. Below are th
 #### Feature Importance
 
 
-## NLP: Topic Modeling of Event Descriptions
+## (NLP) Topic Modeling of Event Descriptions
 
 
 ## Takeaways
