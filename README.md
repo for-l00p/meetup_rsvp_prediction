@@ -16,7 +16,7 @@ There were null values to address in the events and groups dataset. Based on the
 </p>
 
 <p align="center">
- <img width="800" alt="datacleaning_groups" height="350" src="datacleaning_groups.png">
+ <img width="500" alt="datacleaning_groups" height="350" src="datacleaning_groups.png">
 </p>
 
 
