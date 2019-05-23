@@ -36,25 +36,29 @@ As expected, most events were located in the greater New York City area but inte
  <img width="400" alt="nycevents" height="225" src="images/nyc_events_map.png">
 
  <img width="400" alt="globevents" height="225" src="images/glob_events_map.png">
-
 </p>
 
 The number of events held by each group varied across the category of the hosting group. For example, book-club groups held much fewer events than singles groups. This intuitively makes sense - book clubs generally need to space out meetings to ensure members have enough time to read sections of a book whereas the singles group look to provide as many 'mingling' opportunities as possible.
 
 <p align='center'>
  <img width="800" alt="events" height="700" src="images/events_eda.png">
-
 </p>
+
+There is a clear pattern in the total number of events held per day. The number of events usually peak on Saturdays and dip on Mondays.
+
+<p align='center'>
+ <img width="400" alt="perday" height="200" src="images/events_perday.png">
+</p>
+
 
 
 #### Target
 
-The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs greater than 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since such a small value would have a negligible effect on the model prediction.
+The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs > 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since they would likely have a negligible effect on the models.
 
 <p align='center'>
- <img width="600" alt="target" height="300" src="images/target_info.png">
+ <img width="400" alt="target" height="200" src="images/target_info.png">
 </p>
-
 
 #### Groups
 
@@ -80,7 +84,7 @@ Below is a summary of all the regression models I ran. We'll take a closer look 
 
 ## Takeaways
 
-One of the biggest caveats for this model is that 'yes' RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
+One of the biggest caveats for this model is that yes-RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
 
 ## Next Steps
 
