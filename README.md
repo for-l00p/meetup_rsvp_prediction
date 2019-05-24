@@ -155,6 +155,10 @@ Based on the feature importance graph, there are some factors that are directly 
 
 Group category has little to do with yes-RSVP count but there might be some influence with topic model.
 
+<b>Try it out yourself!</b>
+
+To test out the model's prediction, go to the RSVP Event Predictor notebook. You will need to pass in the event ID (the last digits in the event URL) and you will get back the event name, group name, predicted yes-RSVP count, and actual yes-RSVP count.
+
 
 ## Next Steps
 
