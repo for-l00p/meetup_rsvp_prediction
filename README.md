@@ -145,7 +145,10 @@ To analyze the latent topics in the event descriptions, I used the LDA (Latent D
 
 ## Takeaways
 
-One of the biggest caveats for this model is that yes-RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain predictions using real attendance data.
+One of the biggest caveats for this model is that yes-RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
+
+There seems to be some factors within an organizer's control that can have an effect on the yes-RSVP count: how long the event is posted prior to the actual event date, descriptive-ness of the event, location
+
 
 ## Next Steps
 
