@@ -91,13 +91,13 @@ The baseline model was a multivariate linear regression containing the following
 - event duration
 - group category
 
-The resulting model had an R2 = .21 and RMSE = 21. Below is a distribution plot of the residual values. Clearly, there was room for improvement.
+The resulting model had an R<sup>2</sup> = .21 and RMSE = 21. Below is a distribution plot of the residual values. Clearly, there was room for improvement.
 
 #### Best Model
 
 The best performing model was an xgboost regression that contained 46 features in total:
 
-The resulting model had an R2 = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
+The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
 
 
 
