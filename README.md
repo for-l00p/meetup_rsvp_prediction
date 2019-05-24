@@ -91,17 +91,34 @@ The baseline model was a multivariate linear regression containing the following
 - event duration
 - group category
 
-
-
+The resulting model had an R2 = .21 and RMSE = 21. Below is a distribution plot of the residual values. Clearly, there was room for improvement.
 
 #### Best Model
+
+The best performing model was an xgboost regression that contained 46 features in total:
+
+The resulting model had an R2 = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
+
+
+
 
 
 #### Feature Importance
 
+From the xgboost model, we were able to obtain a graph of the feature importance. This is helpful to know for additional feature selection and potential dimensionality reduction by removing features that have little to no effect on the prediction.
+
+The top three most important features were:
+- baseline features above
+-
+
+
+Surprisingly, the group_category did not play much of a role in the yes-RSVP count and could be removed from the model with little change in performance.
+
 
 
 ## (NLP) Topic Modeling of Event Descriptions
+
+To analyze the latent topics in the event descriptions, I used the LDA (Latent Dirichlet Analysis) Model and derived 8 unique topics. As shown by the gensim graph below, the topics were decently well-separated indicating
 
 
 ## Takeaways
