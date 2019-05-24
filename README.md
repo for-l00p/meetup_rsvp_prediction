@@ -157,12 +157,11 @@ Group category has little to do with yes-RSVP count but there might be some infl
 
 <b>Try it out yourself!</b>
 
-To test out the model's prediction, go to the RSVP Event Predictor notebook. You will first need to get a NYC-based Meetup event URL and pass in the last digits of the link into the prediction function. The function will then return the event name, group name, predicted yes-RSVP count, and actual yes-RSVP count. (See example below.)
+To test out the model's prediction, go to the RSVP Event Predictor notebook. You will first need to get a NYC-based Meetup event URL and pass in the last digits/letters of the link into the prediction function. The function will then return the event name, group name, predicted yes-RSVP count, and actual yes-RSVP count. (See example below.)
 
 <p align='center'>
- <img width="400" alt="pred" height="50" src="images/sample_pred.png">
+ <img width="800" alt="pred" height="100" src="images/sample_pred.png">
 </p>
-
 
 
 ## Next Steps
