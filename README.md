@@ -93,6 +93,10 @@ The baseline model was a multivariate linear regression containing the following
 
 The resulting model had an R<sup>2</sup> = .21 and RMSE = 21. Below is a distribution plot of the residual values. Clearly, there was room for improvement.
 
+<p align='center'>
+ <img width="400" alt="baseline" height="225" src="images/baseline.png">
+</p>
+
 #### Best Model
 
 The best performing model was an xgboost regression that contained 46 features in total:
@@ -100,6 +104,9 @@ The best performing model was an xgboost regression that contained 46 features i
 The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
 
 
+<p align='center'>
+ <img width="400" alt="xg" height="225" src="images/xg.png">
+</p>
 
 
 
