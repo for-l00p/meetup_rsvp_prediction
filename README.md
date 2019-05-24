@@ -100,14 +100,26 @@ The resulting model had an R<sup>2</sup> = .21 and RMSE = 21. Below is a distrib
 #### Best Model
 
 The best performing model was an xgboost regression that contained 46 features in total:
+- baseline features above
+- engineered features:
+    - number of days between event posting and event date
+    - num_words
+    - day of week of the event
+    - number of years the group has been around
+    - number of subway stations within 0.5 miles from event venue
+    - time of day of the event
+- additional (binary) features:
+    - whether there was more information on how to find the event
+    - whether there was an RSVP limit
+    - whether there was a photo posted to the event
+    - whether the group is open
+    - whether there was an event fee
 
 The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
-
 
 <p align='center'>
  <img width="400" alt="xg" height="225" src="images/xg.png">
 </p>
-
 
 
 #### Feature Importance
@@ -115,12 +127,15 @@ The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a dist
 From the xgboost model, we were able to obtain a graph of the feature importance. This is helpful to know for additional feature selection and potential dimensionality reduction by removing features that have little to no effect on the prediction.
 
 The top three most important features were:
-- baseline features above
--
+- number of days between event posting and event date
+- number of words in the event description
+- number of members in the group
 
+<p align='center'>
+ <img width="400" alt="feat" height="400" src="images/feat_imp.png">
+</p>
 
-Surprisingly, the group_category did not play much of a role in the yes-RSVP count and could be removed from the model with little change in performance.
-
+Surprisingly, the ```group_category``` did not play much of a role in the yes-RSVP count and could be removed from the model with little change in performance.
 
 
 ## (NLP) Topic Modeling of Event Descriptions
