@@ -62,14 +62,17 @@ The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a m
 
 #### Groups
 
-There are X different categories of groups on Meetup. The tech and business-networking categories have the most number of groups. The numbers quickly drop off for all other categories. This could be unique to NYC where it is a large 
+There are X different categories of groups on Meetup. The tech and business-networking categories have the most number of groups. The numbers quickly drop off for all other categories. This could be unique to NYC as a central economic and tech hub.
 
 <p align='center'>
  <img width="600" alt="cats" height="250" src="images/group_cats.png">
 </p>
 
+The membership count for each group by category is shown in the boxplot below.
 
-
+<p align='center'>
+ <img width="800" alt="mem" height="700" src="images/mem_count.png">
+</p>
 
 ## Modeling
 
