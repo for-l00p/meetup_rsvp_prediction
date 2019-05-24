@@ -118,7 +118,7 @@ The best performing model was an xgboost regression that contained 46 features i
 The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
 
 <p align='center'>
- <img width="400" alt="xg" height="225" src="images/xg.png">
+ <img width="400" alt="xg" height="500" src="images/xg.png">
 </p>
 
 
@@ -140,20 +140,24 @@ Surprisingly, the ```group_category``` did not play much of a role in the yes-RS
 
 ## (NLP) Topic Modeling of Event Descriptions
 
-To analyze the latent topics in the event descriptions, I used the LDA (Latent Dirichlet Analysis) Model and derived 8 unique topics. As shown by the gensim graph below, the topics were decently well-separated indicating
+To analyze the latent topics in the event descriptions, I used the Latent Dirichlet Allocation (LDA) Model to classify text in the event description to a particular topic and derived 8 unique topics. As shown by the graph below, the topics were decently well-separated indicating little overlap in topics.
+
+<p align='center'>
+ <img width="350" alt="topics" height="400" src="images/topics_graph.png">
+</p>
+
 
 
 ## Takeaways
 
 One of the biggest caveats for this model is that yes-RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
 
-There seems to be some factors within an organizer's control that can have an effect on the yes-RSVP count: how long the event is posted prior to the actual event date, descriptive-ness of the event, location
+Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting and event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
 
 
 ## Next Steps
 
 For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
-
 
 
 - reg w/ all data
