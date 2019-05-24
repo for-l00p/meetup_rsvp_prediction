@@ -47,7 +47,7 @@ The number of events held by each group varied across the category of the hostin
 There is a clear pattern in the total number of events held per day. The number of events usually peak on Saturdays and dip on Mondays.
 
 <p align='center'>
- <img width="500" alt="perday" height="250" src="images/events_perday.png">
+ <img width="550" alt="perday" height="250" src="images/events_perday.png">
 </p>
 
 
