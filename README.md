@@ -118,7 +118,7 @@ The best performing model was an xgboost regression that contained 46 features i
 The resulting model had an R<sup>2</sup> = 0.85 and a RMSE = 12. Below is a distribution plot of the residual values. There is a clear improvement in that residuals values have moved closer to the 0 bin.
 
 <p align='center'>
- <img width="400" alt="xg" height="500" src="images/xg.png">
+ <img width="400" alt="xg" height="225" src="images/xg.png">
 </p>
 
 
