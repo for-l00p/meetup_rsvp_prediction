@@ -54,7 +54,7 @@ There is a clear pattern in the total number of events held per day. The number 
 
 #### Target
 
-The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs > 100. The total number of outliers in the dataset amounted to just a small portion so I retained all values since they would likely have a negligible effect on the models.
+The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs > 100. Because the total number of outliers in the dataset amounted to just a small portion, I retained those values since they would likely have a negligible effect on model performance.
 
 <p align='center'>
  <img width="500" alt="target" height="250" src="images/target_info.png">
@@ -64,19 +64,32 @@ The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a m
 
 
 
+
 ## Modeling
 
 Below is a summary of all the regression models I ran. We'll take a closer look at the baseline and the best performing models below.
 
-
+<p align='center'>
+ <img width="480" alt="reg" height="175" src="images/reg_models.png">
+</p>
 
 #### Baseline
+
+The baseline model was a multivariate linear regression containing the following features:
+
+- number of members in the event's group
+- number of total events held by the group
+- event duration
+- group category
+
+
 
 
 #### Best Model
 
 
 #### Feature Importance
+
 
 
 ## (NLP) Topic Modeling of Event Descriptions
@@ -88,7 +101,7 @@ One of the biggest caveats for this model is that yes-RSVP count inherently is n
 
 ## Next Steps
 
-For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
+For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
 
 
 
