@@ -147,22 +147,17 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 </p>
 
 
-
 ## Takeaways
 
-One of the biggest caveats for this model is that yes-RSVP count inherently is not an accurate reflection of actual event attendance. However, until accurate and comprehensive attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if actual attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
+One of the biggest caveats for this model is that yes-RSVP count is not an accurate reflection of event attendance. However, until actual attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
 
-Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting and event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
+Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting an event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
+
+Group category has little to do with yes-RSVP count but there might be some influence with topic model.
 
 
 ## Next Steps
 
 For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
 
-
-- reg w/ all data
-- class w/ all data (measure performance w/ ROC-AUC graphs, confusion matrices & precision/recall/F1)
-    - SMOTE (post train/test/split to avoid data leakage)
-    - under-sample majority class
-    - note that you do not have to have a perfect 1:1 ratio across all classes - try any ratio that is better than what you currently have
-- visualize centroids of member-clusters?
+As part of my data gathering step, I scraped members' groups and interests from their Meetup profile and would like to run some NLP analysis on that to cluster members for potential segmentation application.
