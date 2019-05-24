@@ -79,7 +79,7 @@ The membership count for each group by category is shown in the boxplot below.
 Below is a summary of all the regression models I ran. We'll take a closer look at the baseline and the best performing models below.
 
 <p align='center'>
- <img width="480" alt="reg" height="175" src="images/reg_models.png">
+ <img width="500" alt="reg" height="175" src="images/reg_models.png">
 </p>
 
 #### Baseline
