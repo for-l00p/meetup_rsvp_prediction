@@ -5,6 +5,10 @@ def load_events():
     """
     This function loads all monthly events, then merges into one variable
     and returns the data in a dataframe.
+    --INPUT--
+    None
+    --OUPUT--
+    Dataframe
     """
     with open('monthly_events_2018/sepoct_events.pkl', 'rb') as f:
         sepoct_events = pickle.load(f)
@@ -47,6 +51,10 @@ def load_events():
 
 def clean_events(dataframe):
     """
-    This function will perform all the data cleaning activities; takes in a
+    This function will perform all data cleaning activities; takes in a
     dataframe as an input.
+    --INPUT--
+    Dataframe
+    --OUTPUT--
+    Dataframe
     """
