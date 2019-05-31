@@ -1,4 +1,7 @@
 # Helper functions for cleaning all 2018 events data
+from meetup_api_functions import get_subway_distances
+import pandas as pd
+import pickle
 
 
 def load_events():
@@ -133,3 +136,113 @@ def get_subway_distances(coord, subway_locations):
     sorted from closest to farthest
     """
     return sorted([haversine(coord, s, unit='mi') for s in subway_locations])
+
+# function to create engineered features for events data
+
+
+def engineer_events_features(dataframe):
+
+    # convert time to a datetime datatype
+    new_df = dataframe
+    new_df['time_datetime'] = pd.to_datetime(new_df['time'], unit='ms')
+    # adding event date as Year/Month/Day
+    new_df['time_m_d_y'] = new_df['time_datetime'].apply(lambda x: x.strftime('%Y-%m-%d'))
+
+    # add column with day of week
+    new_df['time_m_d_y'] = pd.to_datetime(new_df['time_m_d_y'])
+    new_df['day_of_week'] = new_df['time_m_d_y'].dt.day_name()
+
+    # create column called event_hour - get hour of event
+    new_df['event_hour'] = new_df['time_datetime'].dt.hour
+    new_df['event_hour'] = new_df['event_hour'].astype('category')
+
+    # bin the event hour into 6 bins (4-hour intervals in 24-day)
+    bins = [0, 4, 8, 12, 16, 21, 24]
+    new_df['event_hour_group'] = pd.cut(new_df['event_hour'], bins, right=False)
+
+    # add count of subway stations within 0.5 miles from venue
+    # load subway station data
+    df_subway = pd.read_csv("NYC_Subway_Data.csv")
+
+    # dropping duplicate stations (file contains a location for each entry/exit point which is not what we need)
+    df_unique_subway = df_subway.drop_duplicates(subset=["Division", "Station Name"])
+
+    # convert the latitude and longitude into floats for distance calculation
+    df_unique_subway['Station Latitude'].astype(float)
+    df_unique_subway['Station Longitude'].astype(float)
+
+    # create a new column with the converted latitude and longitutdes in a tuple
+    df_unique_subway['latlon'] = list(
+        zip(df_unique_subway['Station Latitude'], df_unique_subway['Station Longitude']))
+
+    # create a variable with a list of each station's (latitude, longitude)
+    subway_locations = list(df_unique_subway['latlon'])
+
+    # save the subway_locations variable
+    with open('subway_locations.pkl', 'wb') as f:
+        pickle.dump(subway_locations, f)
+
+    # import function created to get the distances of each venue to each subway station
+    # apply/lambda function to every event
+    new_df['subway_distances'] = new_df['venue_latlon'].apply(
+        lambda x: get_subway_distances(x, subway_locations))
+
+    # create a column with a count of subway stations less than 0.5 miles from each venue
+    new_df['num_close_subways'] = new_df['subway_distances'].apply(
+        lambda x: len([i for i in x if i <= 0.5]))
+
+    # create new column that notes whether there is a fee or no fee for the event
+    new_df['has_fee'] = new_df.fee.apply(lambda x: 0 if x == 0 else 1)
+
+    # get number of days from event creation to event date
+    new_df['created_to_event_days'] = (new_df['time'].astype(
+        int)-new_df['created'].astype(int))/86400000
+
+    # create dataframe for total number of events held in 2018 by group
+    df_num_past_events = pd.DataFrame(new_df.group_id.value_counts()).reset_index()
+    df_num_past_events.columns = ['group_id', 'num_past_events']
+
+    # merge multiple dataframes
+
+    # load group dataframe
+    df_groups = pd.read_pickle('df_all_groups_cleaned.pickle')
+    df_events_group = pd.merge(new_df, df_groups, how='left', on='group_id')
+    df_events_group_past = pd.merge(df_events_group, df_num_past_events, how='left', on='group_id')
+
+    # rename columns
+    df_events_group_past.rename(columns={'created_x': 'event_created',
+                                         'description_x': 'event_description',
+                                         'duration_min': 'event_duration',
+                                         'headcount': 'event_headcount',
+                                         'id': 'event_id',
+                                         'name_x': 'event_name',
+                                         'rating': 'event_rating',
+                                         'status_x': 'event_status',
+                                         'time': 'event_time',
+                                         'updated': 'event_updated',
+                                         'visibility_x': 'event_visibility',
+                                         'descrip_tokens': 'event_descrip_tokens',
+                                         'descrip_num_words': 'event_descrip_num_words',
+                                         'has_fee': 'has_event_fee',
+                                         'created_y': 'group_created',
+                                         'description_y': 'group_description',
+                                         'join_mode': 'group_join_mode',
+                                         'lat': 'group_lat',
+                                         'lon': 'group_lon',
+                                         'link': 'group_link',
+                                         'state': 'group_state',
+                                         'members': 'num_members',
+                                         'name_y': 'group_name',
+                                         'status_y': 'group_status',
+                                         'urlname': 'group_urlname',
+                                         'visibility_y': 'group_visibility',
+                                         'who': 'group_who',
+                                         'category_name': 'group_category',
+                                         'organizer_id': 'group_organizer_id',
+                                         'yrs_since_created': 'group_yrs_est',
+                                         'created_date': 'group_created_date'
+                                         }, inplace=True)
+    # save the merged dataframe
+    df_events_group_past.to_pickle('df_2018_cleaned.pickle')
+
+    return df_events_group_past
