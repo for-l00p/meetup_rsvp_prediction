@@ -110,3 +110,13 @@ def clean_events(dataframe):
 def remove_special_chars(some_list):
     remove = ["-", "--", "###", "##", "", "•"]
     return [x for x in some_list if x not in remove]
+
+# function to get distanes to subway stations from each venue
+
+
+def get_subway_distances(coord, subway_locations):
+    """
+    returns a list of distances from venue to each subway station in NYC,
+    sorted from closest to farthest
+    """
+    return sorted([haversine(coord, s, unit='mi') for s in subway_locations])
