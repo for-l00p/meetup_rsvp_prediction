@@ -3,6 +3,7 @@
 
 Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's API.
 
+
 ## Motivation
 
 [Meetup](https://www.meetup.com/) is one of first and most popular event-based social networking sites. With humble beginnings in New York City, the Meetup community now stretches all around the world. The founders of Meetup realized the importance of building real communities through in-person interactions in the form of community events.
