@@ -57,52 +57,65 @@ def clean_events(dataframe):
     --OUTPUT--
     Dataframe
     """
+    new_df = dataframe
+
     # convert values in duration column from milliseconds to minutes
-    dataframe['duration'] = dataframe['duration'].apply(lambda x: x/60000)
+    new_df['duration'] = new_df['duration'].apply(lambda x: x/60000)
+
     # label encode value for whether group's join-mode is open or not
-    dataframe['group_is_open'] = dataframe.group.apply(
-        lambda x: 1 if x['join_mode'] == 'open' else 0)
+    new_df['group_is_open'] = new_df.group.apply(lambda x: 1 if x['join_mode'] == 'open' else 0)
+
     # extract group_id from the group column which contains a dictionary of group details
-    dataframe['group_id'] = dataframe.group.apply(lambda x: x.get('id'))
+    new_df['group_id'] = new_df.group.apply(lambda x: x.get('id'))
+
     # rename column to note time unit of the data
-    dataframe.rename(columns={'duration': 'duration_min'}, inplace=True)
+    new_df.rename(columns={'duration': 'duration_min'}, inplace=True)
+
     # fill in NaNs, then label encode
-    dataframe['how_to_find_us'].fillna(0, inplace=True)
-    dataframe['has_how_to_find'] = dataframe['how_to_find_us'].apply(lambda x: 1 if x != 0 else 0)
-    dataframe['rsvp_limit'].fillna(0, inplace=True)
-    dataframe['has_rsvp_limit'] = dataframe['rsvp_limit'].apply(lambda x: 1 if x != 0 else 0)
+    new_df['how_to_find_us'].fillna(0, inplace=True)
+    new_df['has_how_to_find'] = new_df['how_to_find_us'].apply(lambda x: 1 if x != 0 else 0)
+
+    new_df['rsvp_limit'].fillna(0, inplace=True)
+    new_df['has_rsvp_limit'] = new_df['rsvp_limit'].apply(lambda x: 1 if x != 0 else 0)
+
     # fill in Nans, then clean text using regex helper function
-    dataframe.description.fillna(value='None', inplace=True)
-    dataframe['description'] = dataframe['description'].apply(lambda x: clean_text(x))
+    new_df.description.fillna(value='None', inplace=True)
+    new_df['description'] = new_df['description'].apply(lambda x: clean_text(x))
+
     # remove special characters and get word count of event descriptions
-    dataframe['event_num_words'] = dataframe.description.apply(
+    new_df['event_num_words'] = new_df.description.apply(
         lambda x: len(remove_special_chars(x.split(' '))))
+
     # replace missing values in duration to median value
-    dataframe.duration_min.fillna(value=dataframe.duration_min.median(), inplace=True)
+    new_df.duration_min.fillna(value=new_df.duration_min.median(), inplace=True)
     # replace missing venue values with 'None'
-    dataframe.venue.fillna(value='None', inplace=True)
+    new_df.venue.fillna(value='None', inplace=True)
     # replace missing fee values with 'N/A'
-    dataframe.fee.fillna(value=0, inplace=True)
+    new_df.fee.fillna(value=0, inplace=True)
     # replace missing photo_url values with 'N/A'
-    dataframe.photo_url.fillna(value=0, inplace=True)
+    new_df.photo_url.fillna(value=0, inplace=True)
+
     # extract just the amount from the fee dictionary
-    dataframe.fee = dataframe.fee.apply(lambda x: x['amount'] if x != 0 else 0)
+    new_df.fee = new_df.fee.apply(lambda x: x['amount'] if x != 0 else 0)
+
     # encode photo_url column
-    dataframe['has_photo'] = dataframe.photo_url.apply(lambda x: 0 if x == 0 else 1)
+    new_df['has_photo'] = new_df.photo_url.apply(lambda x: 0 if x == 0 else 1)
 
     """
-    cleaning the venue column
+    clean the venue column
     """
     # converting the 'venue' column into its own dataframe
-    df_venues = dataframe['venue'].apply(pd.Series)
+    df_venues = new_df['venue'].apply(pd.Series)
     # create list of venue latitude & longitude
-    dataframe['venue_latlon'] = list(zip(df_venues.lat, df_venues.lon))
-    # drop the 'venue' column from df_events
-    dataframe.drop(columns=['venue'], inplace=True)
-    # rename id column to event_id for clarity
-    dataframe.rename(index=str, columns={"id": "event_id"})
+    new_df['venue_latlon'] = list(zip(df_venues.lat, df_venues.lon))
 
-    return dataframe
+    # drop the 'venue' column from df_events
+    new_df.drop(columns=['venue', 'why'], inplace=True)
+
+    # rename id column to event_id for clarity
+    new_df.rename(index=str, columns={"id": "event_id"})
+
+    return new_df
 
 
 # function to remove special character tokens in the tokenzied descriptions
