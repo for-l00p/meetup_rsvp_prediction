@@ -1,10 +1,10 @@
 # Helper functions for cleaning all 2018 events data
 
 
-def load_data():
+def load_events():
     """
     This function loads all monthly events, then merges into one variable
-    and returns the data in a dataframe
+    and returns the data in a dataframe.
     """
     with open('monthly_events_2018/sepoct_events.pkl', 'rb') as f:
         sepoct_events = pickle.load(f)
@@ -43,3 +43,10 @@ def load_data():
         apr_events+may_events+jun_events+jul_events+aug_events+dec_events
 
     return pd.DataFrame(raw_2018)
+
+
+def clean_events(dataframe):
+    """
+    This function will perform all the data cleaning activities; takes in a
+    dataframe as an input.
+    """
