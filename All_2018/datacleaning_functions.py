@@ -121,26 +121,17 @@ def clean_events(dataframe):
     return new_df
 
 
-# function to remove special character tokens in the tokenzied descriptions
-
-def remove_special_chars(some_list):
-    remove = ["-", "--", "###", "##", "", "•"]
-    return [x for x in some_list if x not in remove]
-
-# function to get distanes to subway stations from each venue
-
-
-def get_subway_distances(coord, subway_locations):
-    """
-    returns a list of distances from venue to each subway station in NYC,
-    sorted from closest to farthest
-    """
-    return sorted([haversine(coord, s, unit='mi') for s in subway_locations])
-
 # function to create engineered features for events data
 
 
 def engineer_events_features(dataframe):
+    """
+    This function creates engineered features and outputs an updated dataframe.
+    --INPUT--
+    Dataframe
+    --OUPUT--
+    Dataframe
+    """
 
     # convert time to a datetime datatype
     new_df = dataframe
