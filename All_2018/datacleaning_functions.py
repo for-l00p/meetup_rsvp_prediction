@@ -58,3 +58,10 @@ def clean_events(dataframe):
     --OUTPUT--
     Dataframe
     """
+
+
+# function to remove special character tokens in the tokenzied descriptions
+
+def remove_special_chars(some_list):
+    remove = ["-", "--", "###", "##", "", "•"]
+    return [x for x in some_list if x not in remove]
