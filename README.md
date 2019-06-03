@@ -148,7 +148,7 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 </p>
 
 <p align='center'>
- <img width="300" alt="topics" height="150" src="images/lda_topics.png">
+ <img width="450" alt="topics" height="200" src="images/lda_topics.png">
 </p>
 
 
