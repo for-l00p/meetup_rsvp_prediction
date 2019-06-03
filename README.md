@@ -147,6 +147,10 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
  <img width="350" alt="topics" height="400" src="images/topics_graph.png">
 </p>
 
+<p align='center'>
+ <img width="300" alt="topics" height="150" src="images/lda_topics.png">
+</p>
+
 
 ## Takeaways
 
