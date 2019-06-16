@@ -14,7 +14,7 @@ Additionally, because there was a lot of rich information in the event descripti
 
 ## Data Cleaning
 
-My final dataset included contained 8,624 NYC-based groups and 25,424 events (covering September-October 2018).
+First iteration of dataset included contained 8,624 NYC-based groups and 25,424 events (covering September-October 2018).
 
 Before conducting initial analyses, I reviewed the raw data to address missing values by removing a column altogether or filling with a value.
 
