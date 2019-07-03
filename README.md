@@ -151,6 +151,18 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
  <img width="450" alt="topics" height="200" src="images/lda_topics.png">
 </p>
 
+## Member Clustering
+
+I ran a K-Means clustering algorithm after processing a vectorized dataset (using TF-IDF) with 500 features which was reduced down to 2 dimensions using Principle Component Analysis (PCA). According to the elbow plot below, the optimal cluster size was 7.
+
+<p align='center'>
+ <img width="400" alt="elbow" height="250" src="images/elbow.png">
+</p>
+
+<p align='center'>
+ <img width="400" alt="clusters" height="320" src="images/clusters.png">
+</p>
+
 
 ## Takeaways
 
@@ -172,5 +184,3 @@ To test out the model's prediction, go to the RSVP Event Predictor notebook. You
 ## Next Steps
 
 For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
-
-As part of my data gathering step, I scraped members' groups and interests from their Meetup profile and would like to run some NLP analysis on that to cluster members for potential segmentation application.
