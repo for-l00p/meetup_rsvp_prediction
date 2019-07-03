@@ -159,7 +159,6 @@ I ran a K-Means clustering algorithm after processing a vectorized dataset (usin
  <img width="500" alt="elbow" src="images/elbow.png">
 </p>
 <br>
-<br>
 <p align='center'>
  <img width="500" alt="clusters" src="images/clusters.png">
 </p>
