@@ -153,7 +153,7 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 
 ## Member Clustering
 
-I ran a K-Means clustering algorithm after processing a vectorized dataset (using TF-IDF) with 500 features which was reduced down to 2 dimensions using Principle Component Analysis (PCA). According to the elbow plot below, the optimal cluster size was 7.
+I ran a K-Means clustering algorithm after processing a vectorized dataset (using TF-IDF) with 500 features which was reduced down to 2 dimensions using Principle Component Analysis (PCA). According to the elbow plot below, the optimal cluster size was approximately 7.
 
 <p align='center'>
  <img width="500" alt="elbow" height="300" src="images/elbow.png">
