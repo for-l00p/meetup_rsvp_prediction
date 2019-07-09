@@ -10,7 +10,8 @@ Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's
     - Matplotlib / Seaborn
     - Folium
 - Modeling:
-    - Scikit-learn
+    - Scikit-learn (regression, classification, clustering)
+    - Statsmodel
 - NLP:
     - NLTK
     - Regex
