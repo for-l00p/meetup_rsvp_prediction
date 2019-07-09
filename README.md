@@ -4,9 +4,11 @@
 Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's API.
 
 
+
+
 ## Motivation
 
-[Meetup](https://www.meetup.com/) is one of first and most popular event-based social networking sites. With humble beginnings in New York City, the Meetup community now stretches all around the world. The founders of Meetup realized the importance of building real communities through in-person interactions in the form of community events.
+[Meetup](https://www.meetup.com/) is a popular event-based social networking sites that aims to connect people to communities in-person through local events.
 
 One of the biggest challenges of event planning is getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
 
@@ -153,7 +155,7 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 
 ## Member Clustering
 
-I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features. 
+I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features.
 
 
 ## Takeaways
