@@ -3,6 +3,18 @@
 
 Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's API.
 
+<u>Tools:</u>
+- Data Analysis:
+    - Pandas
+    - Numpy
+    - Matplotlib / Seaborn
+    - Folium
+- Modeling:
+    - Scikit-learn
+- NLP:
+    - NLTK
+    - Regex
+
 
 ## Motivation
 
