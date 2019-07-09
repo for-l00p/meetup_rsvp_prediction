@@ -4,15 +4,14 @@
 Predicting yes-RSVP counts for NYC-based events using data sourced from Meetup's API.
 
 
-
-
 ## Motivation
 
-[Meetup](https://www.meetup.com/) is a popular event-based social networking sites that aims to connect people to communities in-person through local events.
+[Meetup](https://www.meetup.com/) is a popular event-based social networking sites that aims to connect people to their local communities in-person through  events that cater to their interests.
 
-One of the biggest challenges of event planning is getting a realistic headcount estimation. Almost all of the logistical details of event planning are contingent on how many attendees are expected - most importantly, choosing on an appropriately-sized venue space.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event.
+One of the biggest challenges of event planning is getting a realistic headcount estimation.  With the trove of past meetup event data, I thought that there might be a way to predict headcount for an event based on features of the event as well as the group hosting the event. I did this through both regression and classification models.
 
-Additionally, because there was a lot of rich information in the event descriptions, I conducted NLP analysis via topic modeling to find latent topics within the event descriptions across all categories.
+Additionally, because there was a lot of rich text information in event descriptions as well as member profiles, I used natural language processing (NLP) to conduct topic modeling on events and k-means clustering of members.
+
 
 ## Data Cleaning
 
@@ -54,7 +53,6 @@ There is a clear pattern in the total number of events held per day. The number 
 </p>
 
 
-
 #### Target
 
 The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a median of 4. There were a small number of outliers -  283 events with 0 yes-RSVPs and 351 events with yes-RSVPs > 100. Because the total number of outliers in the dataset amounted to just a small portion, I retained those values since they would likely have a negligible effect on model performance.
@@ -65,7 +63,7 @@ The yes-RSVP count for events ranged from 0 to 592 with an average of 13 and a m
 
 #### Groups
 
-There are X different categories of groups on Meetup. The tech and business-networking categories have the most number of groups. The numbers quickly drop off for all other categories. This could be unique to NYC as a central economic and tech hub.
+There are 33 different categories of groups on Meetup. The tech and business-networking categories have the most number of groups. The numbers quickly drop off for all other categories. This could be unique to NYC as a central economic and tech hub.
 
 <p align='center'>
  <img width="600" alt="cats" height="250" src="images/group_cats.png">
@@ -77,33 +75,18 @@ The membership count for each group by category is shown in the boxplot below.
  <img width="800" alt="mem" height="700" src="images/mem_count.png">
 </p>
 
-## Modeling
+## Regression Models
 
-Below is a summary of all the regression models I ran. We'll take a closer look at the baseline and the best performing models below.
+Below is a summary of all the regression models I ran. The assumptions required for a linear regression model did not hold so I ran non-parametric regression models instead.
 
 <p align='center'>
  <img width="500" alt="reg" height="175" src="images/reg_models.png">
 </p>
 
-#### Baseline
-
-The baseline model was a multivariate linear regression containing the following features:
-
-- number of members in the event's group
-- number of total events held by the group
-- event duration
-- group category
-
-The resulting model had an R<sup>2</sup> = .21 and RMSE = 21. Below is a distribution plot of the residual values. Clearly, there was room for improvement.
-
-<p align='center'>
- <img width="400" alt="baseline" height="225" src="images/baseline.png">
-</p>
-
 #### Best Model
 
 The best performing model was an xgboost regression that contained 46 features in total:
-- baseline features above
+- baseline features (number of members in the event's group, number of total events held by the group, event duration, group category)
 - engineered features:
     - number of days between event posting and event date
     - num_words
@@ -140,7 +123,13 @@ The top three most important features were:
 
 Surprisingly, the ```group_category``` did not play much of a role in the yes-RSVP count and could be removed from the model with little change in performance.
 
+## Classification Models
 
+Link to Medium posts:
+
+https://medium.com/@grace01/predicting-meetup-event-size-using-a-classification-model-77d782202e9b
+
+s
 ## (NLP) Topic Modeling of Event Descriptions
 
 To analyze the latent topics in the event descriptions, I used the Latent Dirichlet Allocation (LDA) Model to classify text in the event description to a particular topic and derived 8 unique topics. As shown by the graph below, the topics were decently well-separated indicating little overlap in topics.
@@ -155,16 +144,13 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 
 ## Member Clustering
 
-I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features.
+I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features of ~33K member profiles. After running an elbow plot, the optimal cluster size seem to be around X.
 
 
-## Takeaways
+I pulled the top keywords for each cluster and mapped each member to the appropriate cluster group. Now, if you're looking to find members interested in a specific topic, you can run a search in the cluster keywords list and find all members belonging to that particular cluster.
 
-One of the biggest caveats for this model is that yes-RSVP count is not an accurate reflection of event attendance. However, until actual attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
 
-Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting an event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
-
-Group category has little to do with yes-RSVP count but there might be some influence with topic model.
+## Model Deployment with Flask
 
 <b>Try it out yourself!</b>
 
@@ -174,7 +160,8 @@ To test out the model's prediction, go to the RSVP Event Predictor notebook. You
  <img width="800" alt="pred" height="100" src="images/sample_pred.png">
 </p>
 
+## Takeaways
 
-## Next Steps
+One of the biggest caveats for this model is that yes-RSVP count is not an accurate reflection of event attendance. However, until actual attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
 
-For next steps, I plan to gather event data for the rest of 2018 to improve model performance. Additionally, I would like to frame this question as a classification problem to provide a range prediction instead of a single-value prediction. Providing a lower and upper headcount will likely be much easier for event organizers to work with.
+Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting an event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
