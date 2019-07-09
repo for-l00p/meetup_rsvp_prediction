@@ -152,13 +152,13 @@ I pulled the top keywords for each cluster and mapped each member to the appropr
 
 ## Model Deployment with Flask
 
-<b>Try it out yourself!</b>
+Using Flask, I built out a web app to demonstrate how the yes-rsvp-prediction classification model could be used to help event organizers during the event creation stage on Meetup.
 
-To test out the model's prediction, go to the RSVP Event Predictor notebook. You will first need to get a NYC-based Meetup event URL and pass in the last digits/letters of the link into the prediction function. The function will then return the event name, group name, predicted yes-RSVP count, and actual yes-RSVP count. (See example below.)
+More details on how this was built can be found on my Medium post.
 
-<p align='center'>
- <img width="800" alt="pred" height="100" src="images/sample_pred.png">
-</p>
+
+
+
 
 ## Takeaways
 
