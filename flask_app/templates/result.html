@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>RSVP Prediction App</title> <style>
+            body {
+                margin-left:25px;
+                font-family: sans-serif;
+            }
+            input[type=submit] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            width: 250px;
+            font-size: 0.9em;
+            color: #2E3E48;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #294d6b1f;
+            border-radius: 4px;
+            border: unset;
+            }
+            </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo">
+                <a title="Result">
+                    <embed type='image/svg+xml' src='static/meetup_logo.svg' width = "150"/>
+                </a>
+            </div>
+        </header>
+        <h2>Predicted Yes-RSVP Count</h2>
+        <p> {{ prediction }} </p>
+    </body>
+</html>
