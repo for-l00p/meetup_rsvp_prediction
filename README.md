@@ -167,13 +167,13 @@ With cluster size determined, I pulled the top keywords for each cluster and map
 
 Using Flask, I built out a web app to demonstrate how the yes-rsvp-prediction classification model could be used to help event organizers during the event creation stage on Meetup.
 
-[INSERT SCREEN GIF]
+<p align="left">
+ <img width="200" alt="datacleaning_groups" src="images/webapp_screenshot1.png">
+ <img width="200" alt="datacleaning_groups" src="images/webapp_screenshot2.png">
+</p>
 
-More details on how this was built can be found on my Medium post.
 
 
 ## Takeaways
 
-One of the biggest caveats for this model is that yes-RSVP count is not an accurate reflection of event attendance. However, until actual attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if attendance data is available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
-
-Based on the feature importance graph, there are some factors that are directly in an organizer's control that influences the yes-RSVP count, such as number of days between posting an event and word count of the event description, and day of week of the event, if an organizer is looking to maximize their yes-RSVP count for an event.
+One of the biggest caveats for this model is that yes-RSVP count is not an accurate reflection of event attendance. However, until actual attendance data is available, the yes-RSVP count can serve as a suitable proxy. When and if attendance data becomes available, the same preprocessing and modeling steps can be taken as outlined here to obtain attendance predictions.
