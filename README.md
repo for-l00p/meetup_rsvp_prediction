@@ -138,11 +138,12 @@ Surprisingly, the ```group_category``` did not play much of a role in the yes-RS
 
 ## Classification Models
 
-Link to Medium posts:
+Link to Medium posts covering the classification models I built:
 
-https://medium.com/@grace01/predicting-meetup-event-size-using-a-classification-model-77d782202e9b
+- https://medium.com/@grace01/predicting-meetup-event-size-using-a-classification-model-77d782202e9b
 
-s
+- https://medium.com/@grace01/part-2-predicting-meetup-event-size-using-a-classification-model-76d597e3f52f
+
 ## (NLP) Topic Modeling of Event Descriptions
 
 To analyze the latent topics in the event descriptions, I used the Latent Dirichlet Allocation (LDA) Model to classify text in the event description to a particular topic and derived 8 unique topics. As shown by the graph below, the topics were decently well-separated indicating little overlap in topics.
@@ -161,6 +162,7 @@ I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 feat
 
 
 With cluster size determined, I pulled the top keywords for each cluster and mapped each member to the appropriate cluster group. With this information, we can now find segments of members based on their interests and group activity by running a search of cluster keywords.
+
 
 
 ## Model Deployment with Flask
