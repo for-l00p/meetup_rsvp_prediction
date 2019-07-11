@@ -158,11 +158,18 @@ To analyze the latent topics in the event descriptions, I used the Latent Dirich
 
 ## Member Clustering
 
-I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features of ~33K member profiles. After running an elbow plot, the optimal cluster size seem to be around X.
+I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 features of ~33K member profiles. After running an elbow plot, the optimal cluster size seem to be around 50.
 
 
-With cluster size determined, I pulled the top keywords for each cluster and mapped each member to the appropriate cluster group. With this information, we can now find segments of members based on their interests and group activity by running a search of cluster keywords.
+With cluster size determined, I pulled the top keywords for each cluster and mapped each member to the appropriate cluster group. With this information, we can now find segments of members based on their interests and group activity by running a search within cluster keywords.
 
+<p align='center'>
+ <img width="450" alt="topics" src="images/cluster_keywords.png">
+</p>
+
+<p align='center'>
+ <img width="450" alt="topics" src="images/members_clusters.png">
+</p>
 
 
 ## Model Deployment with Flask
