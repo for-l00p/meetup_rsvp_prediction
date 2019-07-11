@@ -163,11 +163,11 @@ I ran a K-Means clustering algorithm on a TF-IDF vectorized matrix with 250 feat
 With cluster size determined, I pulled the top keywords for each cluster and mapped each member to the appropriate cluster group. With this information, we can now find segments of members based on their interests and group activity by running a search within cluster keywords.
 
 <p align='center'>
- <img width="450" alt="topics" src="images/cluster_keywords.png">
+ <img width="600" alt="topics" src="images/cluster_keywords.png">
 </p>
 
 <p align='center'>
- <img width="450" alt="topics" src="images/members_clusters.png">
+ <img width="600" alt="topics" src="images/members_clusters.png">
 </p>
 
 
