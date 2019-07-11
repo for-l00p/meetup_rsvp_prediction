@@ -167,11 +167,7 @@ With cluster size determined, I pulled the top keywords for each cluster and map
 
 Using Flask, I built out a web app to demonstrate how the yes-rsvp-prediction classification model could be used to help event organizers during the event creation stage on Meetup.
 
-<p align="left">
- <img width="450" alt="datacleaning_groups" src="images/webapp_screenshot1.png">
- <img width="450" alt="datacleaning_groups" src="images/webapp_screenshot2.png">
-</p>
-
+![gif](./images/webapp.gif)
 
 
 ## Takeaways
